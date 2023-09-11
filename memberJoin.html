@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+        <meta http-equiv="X-UA-Compatible" content = "ie=edge">
+        <title> 회원가입 </title>
+        <style>
+            /*여백초기화*/
+            *{margin: 0; padding: 0;}
+            
+            body {background-color: lightgoldenrodyellow;}
+            
+            /*회원가입 양식이 담긴 div*/
+            div#formWrap {
+                margin: 0 auto 0 auto;
+                width: 1100px;
+                padding: 50px 50px 50px 50px;
+                border: 1px solid lightgray;
+                border-radius: 20px;
+                box-shadow: 5px 5px 20px lightgray;
+                background-color: white;
+                /*그림자의 가로위치 그림자의 세로위치 그림자의 번짐정도 그림자의 색상*/
+            }
+            /*회원 가입 제목*/
+            h1 {
+                width: 1100px; margin: 40px auto 0 auto;
+                text-align: center;
+            }
+            /*필수 입력 사항 안내글자*/
+            p.userInfo {
+                margin: 0 auto 10px auto;
+                width: 1100px; 
+                color: red; font-size: 12px; font-weight: bold; text-align: right;
+            }
+            
+            /*폼관련태그*/
+            fieldset { border: 0 none;}
+            legend {display: none;}
+            
+            /*회원가입작성테이블*/
+            table { width: 100%; border: none;}
+            
+            /*열제목*/
+            table tr th {
+                padding: 5px 40px 5px 40px;
+                border: none; border-bottom: 1px solid lightgray; 
+                text-align: left;
+            }
+            /*테이터를 작성하는 칸*/
+            table tr td {
+                position: relative;
+                padding: 15px 10px 15px 10px;
+                border: none; border-bottom: 1px solid lightgray; 
+            }
+            
+            /*14세 미만 가입불가 안내글*/
+            table tr td p.under14 {position: absolute; right: 100px; top: 35%; color: red; font-weight: bold; font-size: 12px;}
+            
+            /*입력상자 스타일*/
+            table tr td input { 
+                padding: 10px 10px 10px 10px; 
+                color: lightgray; 
+                background-color: white;
+                border-radius: 6px; border: 1px solid lightgray;
+            }
+            
+            /*이름 아이디 비번 이메일 입력 상자 가로 길이*/
+            table tr td input.textbox {width: 300px;}
+            
+            /*select 스타일*/
+            table tr td select { 
+                padding: 8px; margin-left: 10px;
+                border-radius: 6px; border: 1px solid lightgray;
+            }
+            
+            /*생년월일을 선택하는 select 가로 크키*/
+            table tr td select.day { width: 110px;}
+            
+            /*필수항목*/
+            table tr td span.star {color: red; font-weight: bold;}
+            
+            /*버튼 스타일*/
+            table tr td button {
+                padding: 10px 30px 10px 30px;
+                border-radius: 20px; border: 1px solid black;
+                background-color: white;
+                font-size: 14px; font-weight: bold;
+            }
+            
+            /*가입완료 버튼*/
+            div.buttonArea {text-align: center; padding-top: 50px;}
+            div.buttonArea button {
+                padding: 15px 60px 15px 60px;
+                border-radius: 30px; border: 0px solid black;
+                background-color: red;
+                color: white; font-size: 16px; font-weight: bold;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+    <h1>회원가입</h1>
+    <p class="userInfo">*필수사항 입니다.</p>
+    <div id="formWrap">
+        <form>
+        <fieldset>
+            <legend>9개 항목을 작성하는 회원가입</legend>
+            <table cellspacing="0" cellspadding="0" border="1">
+                <tr>
+                    <th><label for="username">이름<span class="star" title="필수항목">*</span></label></th>
+                    <td><input type="text" class="textbox" id="userName" required placeholder="이름을 입력해주세요" /></td>
+                </tr>
+                <tr>
+                    <th><label for="userId">아이디<span class="star" title="필수항목">*</span></label></th>
+                    <td><input type="text" class="textbox" id="userId" required placeholder="영문, 숫자 조합으로 6~20글자를 입력해주세요." />
+                        <button>중복체크</button></td>
+                </tr>
+                <tr>
+                    <th><label for="userPw">비밀번호<span class="star" title="필수항목">*</span></label></th>
+                    <td><input type="password" class="textbox" id="userPw" required placeholder="영문,숫자,특수문자!@#$&*조합으로 8~20 글자 내외" />
+                        <input type="password" class="textbox" id="userRePw" required placeholder="비밀번호를 한번 더 입력해주세요." /></td>
+                </tr>
+                <tr>
+                    <th><label for="userEmail">이메일<span class="star" title="필수항목">*</span></label></th>
+                    <td><input type="email" class="textbox" id="userEmail" required placeholder="이메일 입력을 입력해주세요." /></td>
+                </tr>
+                <tr>
+                    <th><label for="userPhone">전화번호</label></th>
+                    <td>
+                        <select>
+                            <option value="choice" disabled selected>선택해주세요.</option>
+                            <option value="02">02</option>
+                            <option value="032">032</option>
+                            <option value="034">034</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="userCellPhone">휴대폰<span class="star" title="필수항목">*</span></label></th>
+                    <td>
+                        <select title="휴대폰 첫번째자리">
+                            <option>010</option>
+                            <option>016</option>
+                            <option>018</option>
+                        </select>
+                        <input type="tel" maxlength="4" size="4" title="휴대폰 중간번호" required id="userCellPhone" />
+                        <input type="tel" maxlength="4" size="4" title="휴대폰 끝번호" required id="userCellPhone2" />
+                        <button>인증번호발송</button></td>
+                </tr>
+                <tr>
+                    <th><label for="userCheckNumber">인증번호<span class="star" title="필수항목">*</span></label></th>
+                    <td><input type="tell" class="textbox" id="userCheckNumber" required placeholder="인증 번호를 발송해주세요" /></td>
+                </tr>
+                <tr>
+                    <th><label for="birthday">생년월일</label></th>
+                    <td>
+                        <input type="radio" id="day1" />양력
+                        <input type="radio" id="day2" />음력
+                        <select class="day">
+                            <option>2023</option>
+                            <option>2022</option>
+                            <option>2021</option>
+                        </select>
+                        <select class="day">
+                            <option>7월</option>
+                            <option>6월</option>
+                            <option>5월</option>
+                        </select>
+                        <select class="day">
+                            <option>14일</option>
+                            <option>13일</option>
+                            <option>12일</option>
+                        </select>
+                        <p class="under14">※ 만 14세 미만의 어린이는 가입이 불가능 합니다.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="m">성별</label></th>
+                    <td>
+                        <input type="radio" id="m" />남성
+                        <input type="radio" id="f" />여성
+                    </td>
+                </tr>
+            </table>
+            <div class="buttonArea">
+                <button>가입완료</button>
+            </div>
+        </fieldset>
+    </form>
+    </div>
+    </body>
+</html>
